@@ -1,0 +1,338 @@
+:root {
+    --bg-color: #050505;
+    --frame-color: #0f0f0f;
+    --border-color: #1f1f1f;
+    --accent: #e60000;
+    --accent-hover: #ff1a1a;
+    --text-main: #f0f0f0;
+    --text-muted: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==================================
+   CLOTH BANNER CUTTING PRELOADER
+   ================================== */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.preloader-half {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: #0a0a0a;
+    background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0px, rgba(255,255,255,0.01) 2px, transparent 2px, transparent 4px);
+    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 10;
+}
+
+.preloader-half.top {
+    top: 0;
+    border-bottom: 1px solid var(--accent);
+}
+
+.preloader-half.bottom {
+    bottom: 0;
+    border-top: 1px solid var(--accent);
+}
+
+.preloader-text {
+    position: absolute;
+    color: var(--text-main);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 10px;
+    z-index: 20;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.preloader-text span {
+    color: var(--accent);
+}
+
+.preloader.loaded .preloader-half.top {
+    transform: translateY(-100%);
+}
+
+.preloader.loaded .preloader-half.bottom {
+    transform: translateY(100%);
+}
+
+.preloader.loaded .preloader-text {
+    opacity: 0;
+}
+
+
+/* ==================================
+   MAIN CONTENT
+   ================================== */
+
+canvas#starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease 0.8s, transform 1s ease 0.8s;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+body.ready .container {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.glow-text {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.accent {
+    color: var(--accent);
+    text-shadow: 0 0 15px rgba(230, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    flex: 1;
+}
+
+/* Premium Card Design */
+.card {
+    background-color: var(--frame-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(230, 0, 0, 0.1);
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(230, 0, 0, 0.05), transparent 70%);
+    pointer-events: none;
+}
+
+.card-content {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.badge {
+    font-size: 0.7rem;
+    background-color: var(--accent);
+    color: #fff;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+.badge.upcoming {
+    background-color: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+}
+
+.card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.tags span {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(230, 0, 0, 0.2);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 4px 25px rgba(230, 0, 0, 0.4);
+}
+
+/* ==================================
+   FOOTER / DEVELOPER INFO
+   ================================== */
+footer {
+    margin-top: 6rem;
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+}
+
+.dev-profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.dev-name {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.dev-quote {
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Custom Cursor */
+body, a, button, .card, .btn, i {
+    cursor: none !important;
+}
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+.cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(230, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease-out, height 0.3s ease-out, background-color 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+/* When hovering over interactive elements */
+.cursor-follower.hovering {
+    width: 50px;
+    height: 50px;
+    /* Change to bright crisp WHITE so it pops against the Red buttons! */
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.cursor.hovering {
+    background-color: transparent;
+}

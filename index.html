@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BABAji | Software Vault</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- CUSTOM CURSOR -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- CLOTH BANNER PRELOADER -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-half top"></div>
+        <div class="preloader-text">ACCESSING <span>VAULT</span></div>
+        <div class="preloader-half bottom"></div>
+    </div>
+
+    <!-- Starfield Background -->
+    <canvas id="starfield"></canvas>
+
+    <div class="container">
+        <header>
+            <h1 class="glow-text">BABAji <span class="accent">KA VAULT</span></h1>
+            <p class="subtitle">Premium Software & Tools</p>
+        </header>
+
+        <main class="grid">
+            <!-- BKA Project Card -->
+            <div class="card" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-tilt-max="5" data-tilt-scale="1.02">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <h2>BABAji Ka Astra <span class="badge">V1.0</span></h2>
+                    <p>A lightning-fast, highly optimized media extraction engine. Features 10x multi-threaded downloading, a smart UI, and a built-in image processing suite.</p>
+                    <div class="tags">
+                        <span>Python</span>
+                        <span>UI/UX</span>
+                        <span>yt-dlp</span>
+                    </div>
+                    <a href="https://drive.google.com/file/d/18LtEx4_9dkg_wwYO_3f3IOtkkx3EaSjW/view?usp=drive_link" target="_blank" class="btn primary-btn">Download Setup (30MB)</a>
+                </div>
+            </div>
+
+            <!-- Future Project Card -->
+            <div class="card placeholder" data-tilt data-tilt-glare data-tilt-max-glare="0.1" data-tilt-max="5" data-tilt-scale="1.02">
+                <div class="card-content">
+                    <h2>Civil Eng. Toolkit <span class="badge upcoming">In Development</span></h2>
+                    <p>A specialized suite of computational tools and estimators designed specifically for Civil Engineering workflows. Coming soon.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER / DEVELOPER INFO -->
+        <footer>
+            <div class="dev-profile">
+                <h3 class="dev-name">Syed Abdul Rahman</h3>
+                <p class="dev-quote">"Engineering precision meets digital innovation."</p>
+                <div class="social-links">
+                    <a href="https://github.com/abdulrahmanark04" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/syedabdulrahman07" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/itz.rahman_ark" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
