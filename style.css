@@ -244,6 +244,25 @@ header {
     box-shadow: 0 4px 25px rgba(230, 0, 0, 0.4);
 }
 
+.btn-group {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.secondary-btn {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+}
+
 /* ==================================
    FOOTER / DEVELOPER INFO
    ================================== */
